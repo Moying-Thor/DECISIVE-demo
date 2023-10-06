@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:component_="http://cnsa.ee.digital.twin/component">
+  <component_:ComponentPackage>
+    <components xsi:type="component_:Component" gid="4.00537109375" component_name="Capacitor"/>
+    <components xsi:type="component_:ComponentRelationship" source="/0/@components.0" target="/1"/>
+    <components xsi:type="component_:Component" gid="5.00537109375" component_name="Current Sensor"/>
+    <components xsi:type="component_:ComponentRelationship" source="/2" target="/0/@components.2"/>
+    <components xsi:type="component_:Component" gid="6.00537109375" component_name="DC Voltage Source"/>
+    <components xsi:type="component_:ComponentRelationship" source="/0/@components.4" target="/0/@components.0"/>
+    <components xsi:type="component_:Component" gid="9.00537109375" component_name="Resistor"/>
+    <components xsi:type="component_:ComponentRelationship" source="/0/@components.6" target="/0/@components.2"/>
+  </component_:ComponentPackage>
+  <component_:Component gid="9.00537109375" component_name="Resistor"/>
+  <component_:Component gid="9.00537109375" component_name="Resistor"/>
+</xmi:XMI>

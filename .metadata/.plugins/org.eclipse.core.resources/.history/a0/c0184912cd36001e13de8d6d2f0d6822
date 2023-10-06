@@ -1,0 +1,182 @@
+import "utility.eol";
+
+var related = Sequence{"Resistor", "Inductor", "Capacitor", "DC Voltage Source", "Current Sensor"};
+//var related = Sequence{"Gain", "Constant", "InitialCondition", "Memory", "SecondOrderIntegrator", "Terminator"};
+var component_package = new T!ComponentPackage;
+
+"Begin transformation...".println();
+transform();
+"Transformation done!".println();
+
+operation transform() {
+	var blocks = getRelatedComponents();
+	for(b in blocks){
+		b.println();
+	}
+	for(b in blocks) {
+		//create component
+		var component = createComponent(b);
+		//making sure component is defined
+		if(component.isDefined()) {
+			component_package.components.add(component);
+		}
+		else {
+			"component not defined!!!".errln();
+		}
+//		("current block: " + b).println();
+		//get pred and succ blocks
+		var pred = getPredecessor(b);
+		var succ = getSuccessor(b);
+		if(pred.isDefined()) {
+			var before = createComponent(pred);
+//			("pre block: " + before).errln();
+			createLine(before, component);
+			if(not component_package.components.exists(e|e.name = before.name)) {
+				component_package.components.add(before);
+			}
+			
+		}
+		if(succ.isDefined()) {
+//			("succ block: " + succ).errln();
+			var after = createComponent(succ);
+//			("after: " + after).errln();
+			if(after.isDefined()) {
+				createLine(component, after);
+				if(not component_package.components.exists(e|e.name = after.name)) {
+					component_package.components.add(after);
+				}
+				
+			}
+		}
+	}
+}
+
+operation getRelatedComponents() {
+	var blocks = getAllBlocks();
+	var ret = blocks.select(b|related.includes(b.Name));
+	return ret;
+}
+
+
+operation getConnectivity(element: Any) {
+	return element.PortConnectivity;
+}
+
+operation getElementByHandle(handle : Any) {
+	var blocks = getAllBlocks();
+	var ret = blocks.selectOne(b|b.handle = handle);
+	return ret;
+}
+
+operation getPredecessor(element: Any) {
+	var connectivity = getConnectivity(element);
+	var index = connectivity.size-1;
+	var scenario1 = false;
+	var last = connectivity.at(index);
+	if(last.DstBlock.size > 1) {
+		if(index > 1) {
+			index = index - 2;
+			var pre = connectivity.at(index);
+			if(pre.isDefined()) {
+				return getElementByHandle(pre.DstBlock);
+			}
+		}
+		else {
+			return null;
+		}
+	}
+}
+
+operation getSuccessor(element: Any) {
+	var connectivity = getConnectivity(element);
+	var index = connectivity.size-1;
+	var scenario1 = false;
+	var last = connectivity.at(index);
+	if(last.DstBlock.size > 1) {
+		//in this case, we need to count backwards to determine the successor
+		index = index-1;
+		var succ = connectivity.at(index);
+		if(succ.isDefined()) {
+			return getElementByHandle(succ.DstBlock);
+		}
+	}
+	else {
+		var succ = connectivity.at(index);
+		if(succ.isDefined()) {
+			return getElementByHandle(succ.DstBlock);
+		}
+	}
+}
+
+operation createLine(source: Any, target: Any) {
+	var line = component_package.components.selectOne(e|e.isTypeOf(T!ComponentRelationship) and e.source = source and e.target = target);
+	if(line <> null) {
+		return line;	
+	}
+	line = new T!ComponentRelationship;
+	line.source = source;
+	line.target = target;
+	component_package.components.add(line);
+}
+
+operation createComponent(element: Any) {
+	var name = element.Name;
+	name.println();
+	var ret = component_package.components.selectOne(e|e.gid = element.handle.asString());
+	ret.println();
+	if(ret <> null) {
+		return ret;
+	}
+	if(name = "Inductor") {
+		ret = new T!Component;
+		ret.component_name = "Inductor";
+//		ret.inductance = element.Inductance.asFloat();
+	}
+	else if (name = "Resistor") {
+		ret = new T!Component;
+		ret.component_name = "Resistor";
+//		ret.resistance = element.Resistance.asFloat();
+	}
+	else if (name = "Capacitor") {
+		ret = new T!Component;
+		ret.component_name = "Capacitor";
+//		ret.blockType.name.content.add("Capacitor");
+//      ret.componentType = "hardware";
+//		ret.fit = element.Capacitance.asFloat();
+	}
+	else if (name = "DC Voltage Source") {
+		ret = new T!Component;
+		ret.component_name = "DC Voltage Source";
+	}
+	else if (name = "Current Sensor") {
+		ret = new T!Component;
+		ret.component_name = "Current Sensor";
+	}
+	"++++++++++++".println();
+	ret.println();
+	if(ret <> null) {
+		createName(ret, element.Description);
+		ret.gid = element.handle.asString();
+	}
+	return ret;
+}
+
+operation createName(element, name){
+	var n = new T!LangString;
+	n.content = name;
+	element.name = n;
+}
+
+operation createDescription(element, description){
+	var d = new T!Description;
+	var content = new T!MultiLangString;
+	d.content = content;
+	ContentAddValue(content);
+	element.description = d;
+}
+
+operation createComponentType(element, str){
+	var ct = new T!ComponentType;
+	a.content = name;
+	element.name = n;
+}

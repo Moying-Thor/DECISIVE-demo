@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+metamodels=\\org.eclipse.epsilon.simulink2dt\\metamodel\\base.ecore;\\org.eclipse.epsilon.simulink2dt\\metamodel\\component.ecore;\\org.eclipse.epsilon.simulink2dt\\metamodel\\digital_twin.ecore;\\org.eclipse.epsilon.simulink2dt\\metamodel\\terminology.ecore;\\org.eclipse.epsilon.simulink2dt\\metamodel\\artifact.ecore;\\org.eclipse.epsilon.simulink2dt\\metamodel\\component.emf

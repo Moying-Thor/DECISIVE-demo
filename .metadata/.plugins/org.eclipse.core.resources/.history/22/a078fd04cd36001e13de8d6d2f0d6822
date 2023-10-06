@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<component_:ComponentPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:component_="http://cnsa.ee.digital.twin/component" xmi:id="_oYIR0DbEEe62JZaLVNjFJA">
+  <components xsi:type="component_:Component" xmi:id="_oYIR0TbEEe62JZaLVNjFJA" gid="4.006591796875" component_name="Capacitor" blockType="_oYJf8TbEEe62JZaLVNjFJA">
+    <name xmi:id="_oYI44DbEEe62JZaLVNjFJA" content="C1"/>
+  </components>
+  <components xsi:type="component_:ComponentRelationship" xmi:id="_oYI44TbEEe62JZaLVNjFJA" source="_oYIR0TbEEe62JZaLVNjFJA" target="_oYI44jbEEe62JZaLVNjFJA"/>
+  <components xsi:type="component_:Component" xmi:id="_oYI44jbEEe62JZaLVNjFJA" gid="9.006591796875" component_name="Resistor">
+    <name xmi:id="_oYJf8DbEEe62JZaLVNjFJA" content="R1"/>
+  </components>
+  <components xsi:type="component_:Component" xmi:id="_oYJf8TbEEe62JZaLVNjFJA" gid="5.006591796875" component_name="Current Sensor">
+    <name xmi:id="_oYJf8jbEEe62JZaLVNjFJA"/>
+  </components>
+  <components xsi:type="component_:ComponentRelationship" xmi:id="_oYJf8zbEEe62JZaLVNjFJA" source="_oYI44jbEEe62JZaLVNjFJA" target="_oYJf8TbEEe62JZaLVNjFJA"/>
+  <components xsi:type="component_:Component" xmi:id="_oYJf9DbEEe62JZaLVNjFJA" gid="6.006591796875" component_name="DC Voltage Source">
+    <name xmi:id="_oYJf9TbEEe62JZaLVNjFJA"/>
+  </components>
+  <components xsi:type="component_:ComponentRelationship" xmi:id="_oYKHADbEEe62JZaLVNjFJA" source="_oYJf9DbEEe62JZaLVNjFJA" target="_oYIR0TbEEe62JZaLVNjFJA"/>
+</component_:ComponentPackage>

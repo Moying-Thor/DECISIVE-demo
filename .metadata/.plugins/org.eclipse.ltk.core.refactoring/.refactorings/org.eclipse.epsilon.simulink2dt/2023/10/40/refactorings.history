@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;org.eclipse.epsilon.simulink2dt/test/simulink2dt_1.eol&apos; to &apos;simulink2dt_old_version.eol&apos;" description="Rename resource &apos;simulink2dt_1.eol&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="test/simulink2dt_1.eol" name="simulink2dt_old_version.eol" stamp="1696508889453" updateReferences="true"/>
+</session>

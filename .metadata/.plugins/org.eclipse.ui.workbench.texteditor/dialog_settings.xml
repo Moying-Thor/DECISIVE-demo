@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="createUndirectedRelationship"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="createSubDirectedRelationship"/>
+			<item value="createUndirectedRelationship"/>
+			<item value="fillComponentRoot"/>
+			<item value="component_name"/>
+			<item value="createSubComponent"/>
+			<item value="initTerminologyPackage"/>
+			<item value="fillTerminologyPackage"/>
+			<item value=" b "/>
+			<item value=" c "/>
+			<item value="relationshipIsNotExisted"/>
+			<item value="createRootDirectedRelationship"/>
+			<item value="getOutputIn"/>
+			<item value="blocks"/>
+			<item value="fork"/>
+			<item value="sw"/>
+		</list>
+		<list key="replacehistory">
+			<item value="IsOnlyOneDstBlock"/>
+			<item value=".notEmpty()"/>
+			<item value="directedStructs"/>
+			<item value="structs"/>
+			<item value="Structs"/>
+			<item value="undirectedStructs"/>
+			<item value="directedConns"/>
+			<item value="dstBlocks"/>
+			<item value="directedLines"/>
+			<item value="createComponentRelationship"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="978"/>
+		<item key="DIALOG_Y_ORIGIN" value="5"/>
+		<item key="DIALOG_WIDTH" value="382"/>
+		<item key="DIALOG_HEIGHT" value="418"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1049"/>
+		<item key="DIALOG_Y_ORIGIN" value="566"/>
+	</section>
+</section>
